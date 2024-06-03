@@ -15,7 +15,7 @@ public class BalancedParanthesisOfString2 {
 	        // create an instance of Scanner class   
 	        Scanner sc = new Scanner(System.in);   
 	          
-	        System.out.println("Enter input string to check:");   
+	        System.out.println("Enter input string to check example-({{[])}}):");   
 	        // take input sring from user   
 	        braceString = sc.nextLine();   
 		

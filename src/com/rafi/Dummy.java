@@ -1,5 +1,6 @@
 package com.rafi;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Dummy {
@@ -30,5 +31,10 @@ public class Dummy {
 		cars.addAll(0, bikes);
 		System.out.println(cars);
 		System.out.println(cars.contains("Nexon"));
+		
+		String dateTime="2024-05-24 15:53:36";
+		String[] dateAndTime= dateTime.split(" ");
+		
+		System.out.println("dateTime=> "+dateAndTime[0]+"T"+dateAndTime[1]);
 	}
 }

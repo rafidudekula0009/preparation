@@ -1,9 +1,8 @@
 package com.java8;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class SumAvgCount {
 
@@ -22,6 +21,11 @@ public class SumAvgCount {
 		
 		System.out.println("sum with reduce => "+courses.stream().filter(course->course.getNoOfStudents()>2000).mapToInt(Course::getReviewScore).reduce(0, Integer::sum));
 
+		List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+		Integer sum = integers.stream()
+		  .mapToInt(Integer::intValue)
+		  .sum();
+		
 		//count
 		System.out.println("count => "+courses.stream().filter(course->course.getNoOfStudents()>2000).count());
 
