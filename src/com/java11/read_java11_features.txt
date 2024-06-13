@@ -1,0 +1,24 @@
+https://www.baeldung.com/java-11-new-features
+
+1. Overview
+Oracle released Java 11 in September 2018, only 6 months after its predecessor, version 10.
+
+Java 11 is the first long-term support (LTS) release after Java 8. 
+Oracle also stopped supporting Java 8 in January 2019. As a consequence, 
+a lot of us will upgrade to Java 11.
+
+In this tutorial, we’ll take a look at our options for choosing a Java 11 JDK. 
+Then we’ll explore new features, removed features, and performance enhancements introduced in Java 11.
+-----------------------------------------------*******-----------------------------------------------
+
+2. Oracle vs. Open JDK
+Java 10 was the last free Oracle JDK release that we could use commercially without a license. 
+Starting with Java 11, there’s no free long-term support (LTS) from Oracle.
+
+Thankfully, Oracle continues to provide Open JDK releases, which we can download and use without charge.
+
+-----------------------------------------------*******-----------------------------------------------
+
+Java 11 adds a few new methods to the String class: isBlank, lines, strip, stripLeading, 
+stripTrailing, and repeat.
+

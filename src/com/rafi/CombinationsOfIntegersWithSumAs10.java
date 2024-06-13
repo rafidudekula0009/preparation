@@ -15,18 +15,21 @@ public class CombinationsOfIntegersWithSumAs10 {
 		Map<Integer, List<Integer>> combinationsWithSum10WithStreams = new HashMap<>();
 
 		int count = 0;
-		for (int i : numbers) {
-			for (int j : numbers) {
-
-				if (i + j == 10) {
-					count++;
-					combinationsWithSum10.put(count, List.of(i, j));
+		System.out.println(numbers.size());
+		for (int i = 0; i < numbers.size(); i++) {
+			for (int j = 0; j < numbers.size(); j++) {
+				if (i != j) {
+					if (numbers.get(i) + numbers.get(j) == 10) {
+						System.out.println("i, j => " + numbers.get(i) + ", " + numbers.get(j));
+						count++;
+						combinationsWithSum10.put(count, List.of(i, j));
+					}
 				}
 
 			}
 		}
 
-		System.out.println("combinations with for loop => "+combinationsWithSum10);
+		System.out.println("combinations with for loop => " + combinationsWithSum10);
 
 		numbers.stream().forEach(num -> {
 			streamCount++;
@@ -38,7 +41,7 @@ public class CombinationsOfIntegersWithSumAs10 {
 			});
 		});
 
-		System.out.println("combinations with stream => "+combinationsWithSum10);
+		System.out.println("combinations with stream => " + combinationsWithSum10WithStreams);
 	}
 
 	public static int getStreamCount() {
@@ -47,7 +50,7 @@ public class CombinationsOfIntegersWithSumAs10 {
 	}
 
 	public static void setStreamCount() {
-		streamCount+=1;
+		streamCount += 1;
 	}
 
 }
