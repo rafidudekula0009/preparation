@@ -1,6 +1,6 @@
 package com.custom.arraylist;
 
-public class GFG {
+public class CustomListTest {
 	public static void main(String[] args) {
 	
 		CustomList<Integer> list=new CustomList<Integer>(2); //we are setting max capacity as 2

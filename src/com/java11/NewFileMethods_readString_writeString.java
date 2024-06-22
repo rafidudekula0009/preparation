@@ -1,33 +1,41 @@
 package com.java11;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class NewFileMethods_readString_writeString {
 
 	public static void main(String[] args) {
+		Path tempDir = Paths.get("C:/Users/rafid/eclipse-workspace/Practice/src/com/java11");
 
-		String multilineString = "Baeldung helps \n \n developers \n explore Java.";
-		List<String> lines = multilineString.lines() // Returns a stream of lines extracted from this string,separated
-														// by line terminators.
-				.filter(line -> !line.isBlank()) // Returns true if the string is empty or contains only white space
-													// codepoints,otherwise false.
-				.map(String::strip) // Returns a string whose value is this string, with all leadingand trailing
-									// white spaceremoved.
-				.collect(Collectors.toList());
+		Path filesPath;
+		Path filePath;
+		try {
+			filePath = Files.writeString(Files.createTempFile(tempDir, "demo", ".txt"), "Sample text");
+			String fileContent = Files.readString(filePath);
+			System.out.println("fileLocation => " + Files.getFileStore(filePath) + ", fileName=> "
+					+ filePath.getFileName() + ",content in the file => " + fileContent);
+			
+			//appending data to the existing file
+			filesPath = Paths.get("C:/Users/rafid/eclipse-workspace/Practice/src/com/java11",
+					filePath.getFileName().toString());
+			Files.writeString(filesPath, " \n appended Hello World !!", StandardOpenOption.APPEND);
 
-		multilineString.lines()
-				.forEach(result -> System.out.println("data of the string after using .lines => " + result));
-		System.out.println(
-				"\noutput of string with \\n to list with \"lines\", and \"strip\" and \"isBlank\" combination => \n"
-						+ lines);
-
-		String str = "Abc";
-
-		System.out.println("\n string repeat => " + str.repeat(3)); // o/p : AbcAbcAbc //Returns a string whose value is
-																	// the concatenation of
-		// thisstring repeated count times. If this string is empty or count is zero
-		// then the emptystring is returned.
+			// Optionally verify the file content
+			String content = Files.readString(filesPath);
+			System.out.println(content);
+			
+			//Rename the file
+			File file = new File("C:/Users/rafid/eclipse-workspace/Practice/src/com/java11/"+filePath.getFileName().toString());
+			System.out.println(file+", "+file.renameTo(new File("C:/Users/rafid/eclipse-workspace/Practice/src/com/java11/demo.txt")));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 }
