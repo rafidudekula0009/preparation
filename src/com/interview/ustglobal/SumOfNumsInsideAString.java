@@ -7,7 +7,7 @@ public class SumOfNumsInsideAString {
 	static int sum=0;
 	public static void main(String[] args) {
 
-		String input = "My 90 name 10 is 50 Ramjan";
+		String input = "My 90 name 10 is 50 Ramjan"; //find sum of nums in this string
 
 		String[] inputArray = input.split(" ");
 
