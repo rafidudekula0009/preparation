@@ -1,5 +1,6 @@
 package com.java8;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -18,6 +19,13 @@ public class MinMaxFindFirstFindAny {
 				new Course("AWS","Cloud",90,900),
 				new Course("Azure","Cloud",92,8000)
 				);
+		
+		//max of list of Integers
+		List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7);
+		System.out.println("Max of Integer List => "+nums.stream().mapToInt(n->n).max());
+		
+		System.out.println("Sum of Integer List => "+nums.stream().mapToInt(n->n).sum());
+		
 		//max
 		Comparator<Course> compareByNoOfStudents = Comparator.comparing(Course::getNoOfStudents);
 		System.out.println("Max Students Course => \n"+courses.stream().max(compareByNoOfStudents));
