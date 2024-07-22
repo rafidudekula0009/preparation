@@ -11,7 +11,7 @@ public class AvgSalOfMaleAndFemale {
 		
 		System.out.println(employeeList.stream()
 				.filter(emp->emp.getDepartment().equals("Sales And Marketing"))
-				.collect(Collectors.groupingBy(Employee::getGender, Collectors.counting())));
+				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary))));
 		
 	}
 }
