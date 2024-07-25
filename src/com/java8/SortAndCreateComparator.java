@@ -27,5 +27,11 @@ public class SortAndCreateComparator {
 		
 		Comparator<Course> compareByNoOfStudentsAndReviewsWithDescendingOrder = Comparator.comparing(Course::getNoOfStudents).thenComparing(Course::getReviewScore).reversed();
 		System.out.println("\nSorted By No Of Students and Reviews in descending order => \n"+courses.stream().sorted(compareByNoOfStudentsAndReviewsWithDescendingOrder).collect(Collectors.toList()));
+		
+		
+		
+		List<Integer> numbers = List.of(1,9,8,4,2,0);
+		System.out.println("\n Sorted Integers list in ascending=> "+numbers.stream().sorted().collect(Collectors.toList()));
+		System.out.println("\n Sorted Integers list in descending => "+numbers.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList()));
 	}
 }
