@@ -11,20 +11,22 @@ import java.util.stream.Stream;
 public class ReverseAStringWithSpecialChars {
 
 	public static void main(String[] args) {
-		String spclChars = "$&";
 		String input = "Swa$pn&il"; //output: lin$pa&wS
 
 		String inputWithoutSpecialChars;
 		Map<Integer, String> spclCharIndexMap = new HashMap<Integer, String>();
 		inputWithoutSpecialChars = Stream.of(input.split("")).filter(ch -> {
-			if (!spclChars.contains(ch)) {
-				return true;
-			} else {
+			if (!Character.isDigit(ch.charAt(0))
+		            && !Character.isLetter(ch.charAt(0))
+		            && !Character.isWhitespace(ch.charAt(0))) {
 				spclCharIndexMap.put(input.indexOf(ch), ch);
 				return false;
+			} else {
+				return true;
 			}
 		}).collect(Collectors.joining());
 
+		System.out.println(spclCharIndexMap);
 		inputWithoutSpecialChars = Stream.of(inputWithoutSpecialChars.split("")).reduce("", (a, b) -> b + a);
 
 		for (Entry<Integer, String> s : spclCharIndexMap.entrySet()) {
