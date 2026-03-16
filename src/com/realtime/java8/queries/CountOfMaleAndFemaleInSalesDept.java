@@ -9,6 +9,6 @@ public class CountOfMaleAndFemaleInSalesDept {
 		List<Employee> employeeList = EmployeeListOfData.getEmployeeData();
 //		employeeList.stream().forEach(System.out::println);
 		
-		System.out.println(employeeList.stream().filter(emp->emp.getDepartment().equalsIgnorCase("sales")).collect(Collectors.groupingBy(Employee::get gender, Collectors.counting())));
+		System.out.println(employeeList.stream().filter(emp->emp.getDepartment().equalsIgnorCase("sales")).collect(Collectors.groupingBy(Employee::getGender, Collectors.counting())));
 	}
 }
