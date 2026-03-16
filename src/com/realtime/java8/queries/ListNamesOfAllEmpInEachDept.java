@@ -13,7 +13,7 @@ public class ListNamesOfAllEmpInEachDept {
 		Map<String, List<Employee>> empMap = employeeList.stream()
 		.collect(Collectors.groupingBy(Employee::getDepartment));
 		
-		empMap.entrySet().stream().forEach(ma->System.out.println(ma.getValue()));
+		empMap.entrySet().stream().forEach(ma->System.out.println(ma.getValue().stream().map(empN->empN.getName()).collect(Collectors.joining(", "));
 		
 	}
 }
