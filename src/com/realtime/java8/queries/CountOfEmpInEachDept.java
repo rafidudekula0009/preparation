@@ -10,7 +10,7 @@ public class CountOfEmpInEachDept {
 //		employeeList.stream().forEach(System.out::println);
 		
 		System.out.println(employeeList.stream()
-				.collect(Collectors.groupingBy(Employee::getGender, Collectors.averagingDouble(Employee::getSalary))));
+				.collect(Collectors.groupingBy(Employee::getDepartment,Collectors.counting())));
 		
 	}
 }
